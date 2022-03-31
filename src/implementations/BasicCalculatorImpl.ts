@@ -22,7 +22,7 @@ export class BasicCalculatirImpl implements BasicCalculator {
     }
   }
   subtraction(): CalculatorType {
-    const newBufferedValue = this.crrState.currentNumber - this.crrState.bufferedNumber;
+    const newBufferedValue = this.crrState.bufferedNumber - this.crrState.currentNumber;
     const newCurrentValue = newBufferedValue;
     const newConcatvalue = '';
     return {
@@ -81,6 +81,18 @@ export class BasicCalculatirImpl implements BasicCalculator {
       displayText: newBufferedValue.toString()
     }
   }
+  equal(): CalculatorType {
+    const newBufferedValue = this.crrState.bufferedNumber
+    const newCurrentValue = newBufferedValue;
+    const newConcatvalue = '';
+    return {
+      bufferedNumber: newBufferedValue,
+      currentNumber: newCurrentValue,
+      concatNumber: newConcatvalue,
+      clearNext: true,
+      displayText: newBufferedValue.toString()
+    }
+  }
   clearValues(): CalculatorType {
     return DEFAULT_CALC_VALUE.state
   }
@@ -91,6 +103,7 @@ export class BasicCalculatirImpl implements BasicCalculator {
       case ButtonLabels.MINUS: return this.subtraction()
       case ButtonLabels.MULTIPLY: return this.multiplication()
       case ButtonLabels.DIVIDE: return this.division()
+      case ButtonLabels.EQUAL: return this.division()
       default:
         break;
     }

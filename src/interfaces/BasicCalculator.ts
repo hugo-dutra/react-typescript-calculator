@@ -9,5 +9,6 @@ export interface BasicCalculator {
   percentage(currentState: CalculatorType): CalculatorType;
   invertSignal(currentState: CalculatorType): CalculatorType;
   clearValues(currentState: CalculatorType): CalculatorType;
+  equal(currentState: CalculatorType): CalculatorType;
   performCalculation(buttonLabel: ButtonLabels, currentState: CalculatorType): CalculatorType;
 }

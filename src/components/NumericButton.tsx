@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { ButtonModel } from '../models/ButtonModel'
-import CalcContext, { CalculatorType } from '../store/CalculatorProvider'
+import CalcContext from '../store/CalculatorProvider'
 import './Components.css'
 
 const NumericButton: React.FC<{ buttonModel: ButtonModel }> = props => {

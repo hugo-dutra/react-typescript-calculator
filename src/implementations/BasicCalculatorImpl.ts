@@ -34,22 +34,41 @@ export class BasicCalculatirImpl implements BasicCalculator {
       displayText: newBufferedValue.toString()
     }
   }
-  division(): CalculatorType {
-    const newBufferedValue = this.crrState.currentNumber / this.crrState.bufferedNumber;
-    const newCurrentValue = newBufferedValue;
-    const newConcatvalue = '';
-    return {
-      bufferedNumber: newBufferedValue,
-      currentNumber: newCurrentValue,
-      concatNumber: newConcatvalue,
-      clearNext: true,
-      displayText: newBufferedValue.toString()
-    }
-  }
   multiplication(): CalculatorType {
-    const newBufferedValue = this.crrState.currentNumber * this.crrState.bufferedNumber;
-    const newCurrentValue = newBufferedValue;
-    const newConcatvalue = '';
+    let newBufferedValue = 0;
+    let newCurrentValue = 0;
+    let newConcatvalue = '';
+    if (this.crrState.bufferedNumber > 0) {
+      newBufferedValue = this.crrState.currentNumber * this.crrState.bufferedNumber;
+      newCurrentValue = newBufferedValue;
+      newConcatvalue = '';
+    } else {
+      newBufferedValue = this.crrState.currentNumber;
+      newCurrentValue = newBufferedValue;
+      newConcatvalue = '';
+    }
+    return {
+      bufferedNumber: newBufferedValue,
+      currentNumber: newCurrentValue,
+      concatNumber: newConcatvalue,
+      clearNext: true,
+      displayText: newBufferedValue.toString()
+    }
+
+  }
+  division(): CalculatorType {
+    let newBufferedValue = 0;
+    let newCurrentValue = 0;
+    let newConcatvalue = '';
+    if (this.crrState.bufferedNumber > 0) {
+      newBufferedValue = this.crrState.bufferedNumber / this.crrState.currentNumber;
+      newCurrentValue = newBufferedValue;
+      newConcatvalue = '';
+    } else {
+      newBufferedValue = this.crrState.currentNumber;
+      newCurrentValue = newBufferedValue;
+      newConcatvalue = '';
+    }
     return {
       bufferedNumber: newBufferedValue,
       currentNumber: newCurrentValue,
@@ -58,10 +77,20 @@ export class BasicCalculatirImpl implements BasicCalculator {
       displayText: newBufferedValue.toString()
     }
   }
+
   percentage(): CalculatorType {
-    const newBufferedValue = this.crrState.bufferedNumber * this.crrState.currentNumber / 100;
-    const newCurrentValue = newBufferedValue;
-    const newConcatvalue = '';
+    let newBufferedValue = 0;
+    let newCurrentValue = 0;
+    let newConcatvalue = '';
+    if (this.crrState.bufferedNumber > 0) {
+      newBufferedValue = this.crrState.bufferedNumber * this.crrState.currentNumber / 100;
+      newCurrentValue = newBufferedValue;
+      newConcatvalue = '';
+    } else {
+      newBufferedValue = this.crrState.currentNumber;
+      newCurrentValue = newBufferedValue;
+      newConcatvalue = '';
+    }
     return {
       bufferedNumber: newBufferedValue,
       currentNumber: newCurrentValue,
@@ -71,7 +100,7 @@ export class BasicCalculatirImpl implements BasicCalculator {
     }
   }
   invertSignal(): CalculatorType {
-    const newBufferedValue = -1 * this.crrState.bufferedNumber
+    const newBufferedValue = -1 * this.crrState.currentNumber
     const newCurrentValue = newBufferedValue;
     const newConcatvalue = '';
     return {
@@ -96,6 +125,7 @@ export class BasicCalculatirImpl implements BasicCalculator {
       case ButtonLabels.MULTIPLY: return this.multiplication()
       case ButtonLabels.DIVIDE: return this.division()
       case ButtonLabels.EQUAL: return this.equal()
+      case ButtonLabels.PLUS_MINUS: return this.invertSignal()
       default:
         break;
     }

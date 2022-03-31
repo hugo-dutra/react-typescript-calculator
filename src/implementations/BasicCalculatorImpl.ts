@@ -12,12 +12,13 @@ export class BasicCalculatirImpl implements BasicCalculator {
   sum(): CalculatorType {
     const newBufferedValue = this.crrState.currentNumber + this.crrState.bufferedNumber;
     const newCurrentValue = newBufferedValue;
-    const newConcatvalue = newCurrentValue.toString();
+    const newConcatvalue = '';
     return {
       bufferedNumber: newBufferedValue,
       currentNumber: newCurrentValue,
       concatNumber: newConcatvalue,
-      clearNext: true
+      clearNext: true,
+      displayText: newBufferedValue.toString()
     }
   }
   subtraction(): CalculatorType {

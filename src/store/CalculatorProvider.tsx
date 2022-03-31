@@ -6,6 +6,7 @@ export type CalculatorType = {
   bufferedNumber: number,
   concatNumber: string,
   clearNext: boolean;
+  displayText: string;
 }
 
 //Tipagem das props do contexto
@@ -20,7 +21,8 @@ export const DEFAULT_CALC_VALUE: PropsCalculatorContext = {
     currentNumber: 0,
     bufferedNumber: 0,
     concatNumber: '',
-    clearNext: false
+    clearNext: false,
+    displayText: ''
   },
   setState: () => { }
 }

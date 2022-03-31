@@ -8,17 +8,19 @@ const NumericButton: React.FC<{ buttonModel: ButtonModel }> = props => {
   const handleSetButtonValue = () => {
     if (state.clearNext) {
       setState({
-        concatNumber: state.currentNumber.toString(),
-        currentNumber: +(state.concatNumber + props.buttonModel.label),
+        concatNumber: props.buttonModel.label,
+        displayText: state.concatNumber + props.buttonModel.label,
+        currentNumber: +(+state.concatNumber + props.buttonModel.label),
         bufferedNumber: state.bufferedNumber,
-        clearNext: false,
+        clearNext: false
       })
     } else {
       setState({
-        currentNumber: +(state.concatNumber + props.buttonModel.label),
+        currentNumber: +(+state.concatNumber + props.buttonModel.label),
+        displayText: state.concatNumber + props.buttonModel.label,
         concatNumber: state.concatNumber + props.buttonModel.label,
         bufferedNumber: state.bufferedNumber,
-        clearNext: state.clearNext,
+        clearNext: false
       })
     }
   }

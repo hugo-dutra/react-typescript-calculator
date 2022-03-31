@@ -10,7 +10,7 @@ const CalcDisplay: React.FC = props => {
   }, [state])
 
   return (
-    <input className='CalcDisplay' type='text' placeholder='0' value={state.concatNumber} />
+    <input className='CalcDisplay' type='text' placeholder='0' value={state.displayText} />
   )
 }
 

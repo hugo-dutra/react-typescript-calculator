@@ -1,0 +1,9 @@
+export enum Operations{
+    SUM,
+    SUBTRACTION,
+    MULTIPLICATION,
+    DIVISION,
+    PERCENTAGE,
+    INVERTSIGNAL,
+    EQUALITY
+}

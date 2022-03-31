@@ -6,7 +6,6 @@
 }
 
 .CalcPanel {
-  background-color: red;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -15,7 +14,7 @@
 
 .CalcDisplay {
   background-color: #222;
-  width: 98%;
+  width: 98.5%;
   height: 20%;
   margin: 0%;
   border: 1px solid #444;

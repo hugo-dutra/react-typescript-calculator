@@ -22,19 +22,64 @@ export class BasicCalculatirImpl implements BasicCalculator {
     }
   }
   subtraction(): CalculatorType {
-    return this.crrState
+    const newBufferedValue = this.crrState.currentNumber - this.crrState.bufferedNumber;
+    const newCurrentValue = newBufferedValue;
+    const newConcatvalue = '';
+    return {
+      bufferedNumber: newBufferedValue,
+      currentNumber: newCurrentValue,
+      concatNumber: newConcatvalue,
+      clearNext: true,
+      displayText: newBufferedValue.toString()
+    }
   }
   division(): CalculatorType {
-    return this.crrState
+    const newBufferedValue = this.crrState.currentNumber / this.crrState.bufferedNumber;
+    const newCurrentValue = newBufferedValue;
+    const newConcatvalue = '';
+    return {
+      bufferedNumber: newBufferedValue,
+      currentNumber: newCurrentValue,
+      concatNumber: newConcatvalue,
+      clearNext: true,
+      displayText: newBufferedValue.toString()
+    }
   }
   multiplication(): CalculatorType {
-    return this.crrState
+    const newBufferedValue = this.crrState.currentNumber * this.crrState.bufferedNumber;
+    const newCurrentValue = newBufferedValue;
+    const newConcatvalue = '';
+    return {
+      bufferedNumber: newBufferedValue,
+      currentNumber: newCurrentValue,
+      concatNumber: newConcatvalue,
+      clearNext: true,
+      displayText: newBufferedValue.toString()
+    }
   }
   percentage(): CalculatorType {
-    return this.crrState
+    const newBufferedValue = this.crrState.bufferedNumber * this.crrState.currentNumber / 100;
+    const newCurrentValue = newBufferedValue;
+    const newConcatvalue = '';
+    return {
+      bufferedNumber: newBufferedValue,
+      currentNumber: newCurrentValue,
+      concatNumber: newConcatvalue,
+      clearNext: true,
+      displayText: newBufferedValue.toString()
+    }
   }
   invertSignal(): CalculatorType {
-    return this.crrState
+    const newBufferedValue = -1 * this.crrState.bufferedNumber
+    const newCurrentValue = newBufferedValue;
+    const newConcatvalue = '';
+    return {
+      bufferedNumber: newBufferedValue,
+      currentNumber: newCurrentValue,
+      concatNumber: newConcatvalue,
+      clearNext: true,
+      displayText: newBufferedValue.toString()
+    }
   }
   clearValues(): CalculatorType {
     return DEFAULT_CALC_VALUE.state

@@ -4,7 +4,8 @@ import React, { useState } from "react"
 export type CalculatorType = {
   currentNumber: number,
   bufferedNumber: number,
-  concatNumber: string
+  concatNumber: string,
+  clearNext: boolean;
 }
 
 //Tipagem das props do contexto
@@ -19,6 +20,7 @@ export const DEFAULT_CALC_VALUE: PropsCalculatorContext = {
     currentNumber: 0,
     bufferedNumber: 0,
     concatNumber: '',
+    clearNext: false
   },
   setState: () => { }
 }

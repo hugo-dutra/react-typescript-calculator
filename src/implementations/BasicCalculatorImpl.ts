@@ -8,6 +8,7 @@ export class BasicCalculatirImpl implements BasicCalculator {
   constructor(currentState: CalculatorType) {
     this.crrState = currentState;
   }
+  private lastOperation: any;
 
   sum(): CalculatorType {
     const newBufferedValue = this.crrState.currentNumber + this.crrState.bufferedNumber;
@@ -82,7 +83,7 @@ export class BasicCalculatirImpl implements BasicCalculator {
     }
   }
   equal(): CalculatorType {
-    return this.crrState;
+    return this.sum();
   }
   clearValues(): CalculatorType {
     return DEFAULT_CALC_VALUE.state
@@ -94,7 +95,7 @@ export class BasicCalculatirImpl implements BasicCalculator {
       case ButtonLabels.MINUS: return this.subtraction()
       case ButtonLabels.MULTIPLY: return this.multiplication()
       case ButtonLabels.DIVIDE: return this.division()
-      case ButtonLabels.EQUAL: return this.division()
+      case ButtonLabels.EQUAL: return this.equal()
       default:
         break;
     }

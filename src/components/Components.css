@@ -3,6 +3,7 @@
   height: 45vh;
   width: 20vw;
   border-radius: 5px 5px 5px 5px;
+  min-width: 200px;
 }
 
 .CalcPanel {

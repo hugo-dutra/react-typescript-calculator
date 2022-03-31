@@ -1,23 +1,27 @@
-import { ButtomClasses, ButtonLabels, ButtonModel, ButtonType } from "../models/ButtonModel"
+import { ButtomCssClasses } from "../enums/ButtonCssClasses";
+import { ButtonLabels } from "../enums/ButtonLabels";
+import { ButtonTypes } from "../enums/ButtonTypes";
+import { ButtonModel } from "../models/ButtonModel";
+
 
 export const buttonsMock: ButtonModel[] = [
-  new ButtonModel(ButtonLabels.AC, ButtonType.operation, [ButtomClasses.SimpleButton, ButtomClasses.GrayOperationCalcButton]),
-  new ButtonModel(ButtonLabels.PLUS_MINUS, ButtonType.operation, [ButtomClasses.SimpleButton, ButtomClasses.GrayOperationCalcButton]),
-  new ButtonModel(ButtonLabels.PERCENT, ButtonType.operation, [ButtomClasses.SimpleButton, ButtomClasses.GrayOperationCalcButton]),
-  new ButtonModel(ButtonLabels.DIVIDE, ButtonType.operation, [ButtomClasses.SimpleButton, ButtomClasses.YellowOperationCalcButton]),
-  new ButtonModel(ButtonLabels.SEVEN, ButtonType.numeric, [ButtomClasses.SimpleButton, ButtomClasses.NumericCalcButton]),
-  new ButtonModel(ButtonLabels.EIGHT, ButtonType.numeric, [ButtomClasses.SimpleButton, ButtomClasses.NumericCalcButton]),
-  new ButtonModel(ButtonLabels.NINE, ButtonType.numeric, [ButtomClasses.SimpleButton, ButtomClasses.NumericCalcButton]),
-  new ButtonModel(ButtonLabels.MULTIPLY, ButtonType.operation, [ButtomClasses.SimpleButton, ButtomClasses.YellowOperationCalcButton]),
-  new ButtonModel(ButtonLabels.FOUR, ButtonType.numeric, [ButtomClasses.SimpleButton, ButtomClasses.NumericCalcButton]),
-  new ButtonModel(ButtonLabels.FIVE, ButtonType.numeric, [ButtomClasses.SimpleButton, ButtomClasses.NumericCalcButton]),
-  new ButtonModel(ButtonLabels.SIX, ButtonType.numeric, [ButtomClasses.SimpleButton, ButtomClasses.NumericCalcButton]),
-  new ButtonModel(ButtonLabels.MINUS, ButtonType.operation, [ButtomClasses.SimpleButton, ButtomClasses.YellowOperationCalcButton]),
-  new ButtonModel(ButtonLabels.ONE, ButtonType.numeric, [ButtomClasses.SimpleButton, ButtomClasses.NumericCalcButton]),
-  new ButtonModel(ButtonLabels.TWO, ButtonType.numeric, [ButtomClasses.SimpleButton, ButtomClasses.NumericCalcButton]),
-  new ButtonModel(ButtonLabels.TREE, ButtonType.numeric, [ButtomClasses.SimpleButton, ButtomClasses.NumericCalcButton]),
-  new ButtonModel(ButtonLabels.PLUS, ButtonType.operation, [ButtomClasses.SimpleButton, ButtomClasses.YellowOperationCalcButton]),
-  new ButtonModel(ButtonLabels.ZERO, ButtonType.numeric, [ButtomClasses.SimpleButton, ButtomClasses.DoubleSizeButton13]),
-  new ButtonModel(ButtonLabels.POINT, ButtonType.operation, [ButtomClasses.SimpleButton, ButtomClasses.NumericCalcButton]),
-  new ButtonModel(ButtonLabels.EQUAL, ButtonType.operation, [ButtomClasses.SimpleButton, ButtomClasses.YellowOperationCalcButton])
+  new ButtonModel(ButtonLabels.AC, ButtonTypes.OPERATION, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.GRAYOPERATIONCALCBUTTON]),
+  new ButtonModel(ButtonLabels.PLUS_MINUS, ButtonTypes.OPERATION, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.GRAYOPERATIONCALCBUTTON]),
+  new ButtonModel(ButtonLabels.PERCENT, ButtonTypes.OPERATION, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.GRAYOPERATIONCALCBUTTON]),
+  new ButtonModel(ButtonLabels.DIVIDE, ButtonTypes.OPERATION, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.YELLOWOPERATIONCALCBUTTON]),
+  new ButtonModel(ButtonLabels.SEVEN, ButtonTypes.NUMERIC, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.NUMERICCALCBUTTON]),
+  new ButtonModel(ButtonLabels.EIGHT, ButtonTypes.NUMERIC, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.NUMERICCALCBUTTON]),
+  new ButtonModel(ButtonLabels.NINE, ButtonTypes.NUMERIC, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.NUMERICCALCBUTTON]),
+  new ButtonModel(ButtonLabels.MULTIPLY, ButtonTypes.OPERATION, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.YELLOWOPERATIONCALCBUTTON]),
+  new ButtonModel(ButtonLabels.FOUR, ButtonTypes.NUMERIC, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.NUMERICCALCBUTTON]),
+  new ButtonModel(ButtonLabels.FIVE, ButtonTypes.NUMERIC, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.NUMERICCALCBUTTON]),
+  new ButtonModel(ButtonLabels.SIX, ButtonTypes.NUMERIC, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.NUMERICCALCBUTTON]),
+  new ButtonModel(ButtonLabels.MINUS, ButtonTypes.OPERATION, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.YELLOWOPERATIONCALCBUTTON]),
+  new ButtonModel(ButtonLabels.ONE, ButtonTypes.NUMERIC, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.NUMERICCALCBUTTON]),
+  new ButtonModel(ButtonLabels.TWO, ButtonTypes.NUMERIC, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.NUMERICCALCBUTTON]),
+  new ButtonModel(ButtonLabels.TREE, ButtonTypes.NUMERIC, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.NUMERICCALCBUTTON]),
+  new ButtonModel(ButtonLabels.PLUS, ButtonTypes.OPERATION, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.YELLOWOPERATIONCALCBUTTON]),
+  new ButtonModel(ButtonLabels.ZERO, ButtonTypes.NUMERIC, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.DOUBLESIZEBUTTON13]),
+  new ButtonModel(ButtonLabels.POINT, ButtonTypes.NUMERIC, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.NUMERICCALCBUTTON]),
+  new ButtonModel(ButtonLabels.EQUAL, ButtonTypes.OPERATION, [ButtomCssClasses.SIMPLEBUTTON, ButtomCssClasses.YELLOWOPERATIONCALCBUTTON])
 ]

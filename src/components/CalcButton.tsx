@@ -4,7 +4,6 @@ import './Components.css'
 
 
 const CalcButton: React.FC<{ buttonModel: ButtonModel }> = props => {
-
   return (
     <button
       className={`${props.buttonModel.styleClasses.toString().replace(',', ' ')}`}  >

@@ -1,9 +1,15 @@
 import React from 'react'
+import { ButtonModel } from '../models/ButtonModel'
+import './Components.css'
 
 
-const CalcButton: React.FC = props => {
+const CalcButton: React.FC<{ buttonModel: ButtonModel }> = props => {
+
   return (
-    <div>CalcButton</div>
+    <button
+      className={`${props.buttonModel.styleClasses.toString().replace(',', ' ')}`}  >
+      {props.buttonModel.label}
+    </button>
   )
 }
 

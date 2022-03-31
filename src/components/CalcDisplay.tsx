@@ -1,9 +1,9 @@
 import React from 'react'
-
+import './Components.css'
 
 const CalcDisplay: React.FC = props => {
   return (
-    <div>CalcDisplay</div>
+    <input className='CalcDisplay' type='text' placeholder='0' />
   )
 }
 

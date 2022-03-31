@@ -82,16 +82,7 @@ export class BasicCalculatirImpl implements BasicCalculator {
     }
   }
   equal(): CalculatorType {
-    const newBufferedValue = this.crrState.bufferedNumber
-    const newCurrentValue = newBufferedValue;
-    const newConcatvalue = '';
-    return {
-      bufferedNumber: newBufferedValue,
-      currentNumber: newCurrentValue,
-      concatNumber: newConcatvalue,
-      clearNext: true,
-      displayText: newBufferedValue.toString()
-    }
+    return this.crrState;
   }
   clearValues(): CalculatorType {
     return DEFAULT_CALC_VALUE.state

@@ -1,4 +1,4 @@
-import { ButtonLabels } from "../enums/ButtonLabels";
+import { BUTTON_LABELS } from "../enums/ButtonLabels";
 import { CalculatorType } from "../store/CalculatorProvider";
 
 export interface BasicCalculator {
@@ -10,5 +10,5 @@ export interface BasicCalculator {
   invertSignal(currentState: CalculatorType): CalculatorType;
   clearValues(currentState: CalculatorType): CalculatorType;
   equal(currentState: CalculatorType): CalculatorType;
-  performCalculation(buttonLabel: ButtonLabels, currentState: CalculatorType): CalculatorType;
+  performCalculation(buttonLabel: BUTTON_LABELS, currentState: CalculatorType): CalculatorType;
 }

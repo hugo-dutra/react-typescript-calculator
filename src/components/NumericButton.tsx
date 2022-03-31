@@ -12,7 +12,8 @@ const NumericButton: React.FC<{ buttonModel: ButtonModel }> = props => {
         displayText: state.concatNumber + props.buttonModel.label,
         currentNumber: +(+state.concatNumber + props.buttonModel.label),
         bufferedNumber: state.bufferedNumber,
-        clearNext: false
+        clearNext: false,
+        lastOperation: state.lastOperation
       })
     } else {
       setState({
@@ -20,12 +21,11 @@ const NumericButton: React.FC<{ buttonModel: ButtonModel }> = props => {
         displayText: state.concatNumber + props.buttonModel.label,
         concatNumber: state.concatNumber + props.buttonModel.label,
         bufferedNumber: state.bufferedNumber,
-        clearNext: false
+        clearNext: false,
+        lastOperation: state.lastOperation
       })
     }
   }
-
-
 
   return (
     <button

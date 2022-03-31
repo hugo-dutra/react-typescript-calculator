@@ -1,7 +1,8 @@
 import { DEFAULT_CALC_VALUE } from './../store/CalculatorProvider';
-import { ButtonLabels } from "../enums/ButtonLabels";
+import { BUTTON_LABELS } from "../enums/ButtonLabels";
 import { BasicCalculator } from "../interfaces/BasicCalculator";
 import { CalculatorType } from "../store/CalculatorProvider";
+import { OPERATIONS } from '../enums/Operations';
 
 export class BasicCalculatirImpl implements BasicCalculator {
   private crrState: CalculatorType;
@@ -19,7 +20,8 @@ export class BasicCalculatirImpl implements BasicCalculator {
       currentNumber: newCurrentValue,
       concatNumber: newConcatvalue,
       clearNext: true,
-      displayText: newBufferedValue.toString()
+      displayText: newBufferedValue.toString(),
+      lastOperation: OPERATIONS.PLUS
     }
   }
   subtraction(): CalculatorType {
@@ -31,7 +33,8 @@ export class BasicCalculatirImpl implements BasicCalculator {
       currentNumber: newCurrentValue,
       concatNumber: newConcatvalue,
       clearNext: true,
-      displayText: newBufferedValue.toString()
+      displayText: newBufferedValue.toString(),
+      lastOperation: OPERATIONS.MINUS
     }
   }
   multiplication(): CalculatorType {
@@ -52,7 +55,8 @@ export class BasicCalculatirImpl implements BasicCalculator {
       currentNumber: newCurrentValue,
       concatNumber: newConcatvalue,
       clearNext: true,
-      displayText: newBufferedValue.toString()
+      displayText: newBufferedValue.toString(),
+      lastOperation: OPERATIONS.MULTIPLY
     }
 
   }
@@ -74,7 +78,8 @@ export class BasicCalculatirImpl implements BasicCalculator {
       currentNumber: newCurrentValue,
       concatNumber: newConcatvalue,
       clearNext: true,
-      displayText: newBufferedValue.toString()
+      displayText: newBufferedValue.toString(),
+      lastOperation: OPERATIONS.DIVIDE
     }
   }
 
@@ -96,7 +101,8 @@ export class BasicCalculatirImpl implements BasicCalculator {
       currentNumber: newCurrentValue,
       concatNumber: newConcatvalue,
       clearNext: true,
-      displayText: newBufferedValue.toString()
+      displayText: newBufferedValue.toString(),
+      lastOperation: OPERATIONS.PERCENT
     }
   }
   invertSignal(): CalculatorType {
@@ -108,7 +114,8 @@ export class BasicCalculatirImpl implements BasicCalculator {
       currentNumber: newCurrentValue,
       concatNumber: newConcatvalue,
       clearNext: true,
-      displayText: newBufferedValue.toString()
+      displayText: newBufferedValue.toString(),
+      lastOperation: OPERATIONS.PLUS_MINUS
     }
   }
   equal(): CalculatorType {
@@ -117,15 +124,15 @@ export class BasicCalculatirImpl implements BasicCalculator {
   clearValues(): CalculatorType {
     return DEFAULT_CALC_VALUE.state
   }
-  performCalculation(buttonLabel: ButtonLabels, currentState: CalculatorType): CalculatorType {
+  performCalculation(buttonLabel: BUTTON_LABELS, currentState: CalculatorType): CalculatorType {
     this.crrState = currentState
     switch (buttonLabel) {
-      case ButtonLabels.PLUS: return this.sum()
-      case ButtonLabels.MINUS: return this.subtraction()
-      case ButtonLabels.MULTIPLY: return this.multiplication()
-      case ButtonLabels.DIVIDE: return this.division()
-      case ButtonLabels.EQUAL: return this.equal()
-      case ButtonLabels.PLUS_MINUS: return this.invertSignal()
+      case BUTTON_LABELS.PLUS: return this.sum()
+      case BUTTON_LABELS.MINUS: return this.subtraction()
+      case BUTTON_LABELS.MULTIPLY: return this.multiplication()
+      case BUTTON_LABELS.DIVIDE: return this.division()
+      case BUTTON_LABELS.EQUAL: return this.equal()
+      case BUTTON_LABELS.PLUS_MINUS: return this.invertSignal()
       default:
         break;
     }

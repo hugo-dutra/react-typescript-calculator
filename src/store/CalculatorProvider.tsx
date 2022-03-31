@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { OPERATIONS } from "../enums/Operations";
 
 //Tipo de Objeto a ser atualizado
 export type CalculatorType = {
@@ -7,6 +8,7 @@ export type CalculatorType = {
   concatNumber: string,
   clearNext: boolean;
   displayText: string;
+  lastOperation: OPERATIONS
 }
 
 //Tipagem das props do contexto
@@ -22,7 +24,8 @@ export const DEFAULT_CALC_VALUE: PropsCalculatorContext = {
     bufferedNumber: 0,
     concatNumber: '',
     clearNext: false,
-    displayText: ''
+    displayText: '',
+    lastOperation: OPERATIONS.EQUAL
   },
   setState: () => { }
 }

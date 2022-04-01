@@ -10,5 +10,6 @@ export interface BasicCalculator {
   percentage(): CalculatorType;
   invertSignal(): CalculatorType;
   clearValues(): CalculatorType;
+  equals(): CalculatorType;
   performCalculation(buttonLabel: BUTTON_LABELS, currentState: CalculatorType): CalculatorType;
 }

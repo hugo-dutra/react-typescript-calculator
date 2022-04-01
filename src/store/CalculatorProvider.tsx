@@ -8,7 +8,7 @@ export type CalculatorType = {
   concatNumber: string,
   clearNext: boolean;
   displayText: string | undefined;
-  lastOperation: OPERATIONS
+  lastOperation: OPERATIONS | null
 }
 
 //Tipagem das props do contexto
@@ -25,7 +25,7 @@ export const DEFAULT_CALC_VALUE: PropsCalculatorContext = {
     concatNumber: '',
     clearNext: false,
     displayText: '',
-    lastOperation: OPERATIONS.EQUAL
+    lastOperation: null
   },
   setState: () => { }
 }

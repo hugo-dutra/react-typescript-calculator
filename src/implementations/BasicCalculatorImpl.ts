@@ -9,125 +9,69 @@ export class BasicCalculatirImpl implements BasicCalculator {
   constructor(currentState: CalculatorType) {
     this.crrState = currentState;
   }
-  sum(clearCurrentNumber: boolean): CalculatorType {
-    
+  sum(): CalculatorType {
+    return {
+      currentNumber: this.crrState.currentNumber,
+      bufferedNumber: 0,
+      concatNumber: "",
+      clearNext: true,
+      displayText: this.crrState.currentNumber?.toString(),
+      lastOperation: OPERATIONS.EQUAL,
+    };
+  }
+  subtraction(): CalculatorType {
 
-    return clearCurrentNumber
-      ? {
-          currentNumber: 0,
-          bufferedNumber: 0,
-          concatNumber: "",
-          clearNext: true,
-          displayText: this.crrState.currentNumber.toString(),
-          lastOperation: OPERATIONS.EQUAL,
-        }
-      : {
-          currentNumber: this.crrState.currentNumber,
-          bufferedNumber: 0,
-          concatNumber: "",
-          clearNext: true,
-          displayText: this.crrState.currentNumber.toString(),
-          lastOperation: OPERATIONS.PLUS,
-        };
-  }
-  subtraction(clearCurrentNumber: boolean): CalculatorType {
-   
 
-    return clearCurrentNumber
-      ? {
-          currentNumber: this.crrState.currentNumber,
-          bufferedNumber: 0,
-          concatNumber: "",
-          clearNext: true,
-          displayText: this.crrState.currentNumber.toString(),
-          lastOperation: OPERATIONS.EQUAL,
-        }
-      : {
-          currentNumber: 0,
-          bufferedNumber: 0,
-          concatNumber: "",
-          clearNext: true,
-          displayText: this.crrState.currentNumber.toString(),
-          lastOperation: OPERATIONS.MINUS,
-        };
+    return {
+      currentNumber: this.crrState.currentNumber,
+      bufferedNumber: 0,
+      concatNumber: "",
+      clearNext: true,
+      displayText: this.crrState.currentNumber?.toString(),
+      lastOperation: OPERATIONS.EQUAL,
+    }
   }
-  multiplication(clearCurrentNumber: boolean): CalculatorType {
-   
-    return clearCurrentNumber
-      ? {
-          currentNumber: 0,
-          bufferedNumber: 0,
-          concatNumber: "",
-          clearNext: true,
-          displayText: this.crrState.currentNumber.toString(),
-          lastOperation: OPERATIONS.EQUAL,
-        }
-      : {
-          currentNumber: 0,
-          bufferedNumber: 0,
-          concatNumber: "",
-          clearNext: true,
-          displayText: this.crrState.currentNumber.toString(),
-          lastOperation: OPERATIONS.MULTIPLY,
-        };
+  multiplication(): CalculatorType {
+
+    return {
+      currentNumber: 0,
+      bufferedNumber: 0,
+      concatNumber: "",
+      clearNext: true,
+      displayText: this.crrState.currentNumber?.toString(),
+      lastOperation: OPERATIONS.EQUAL,
+    }
   }
-  division(clearCurrentNumber: boolean): CalculatorType {
-   
-    return clearCurrentNumber
-      ? {
-          currentNumber: 0,
-          bufferedNumber: 0,
-          concatNumber: "",
-          clearNext: true,
-          displayText: this.crrState.currentNumber.toString(),
-          lastOperation: OPERATIONS.EQUAL,
-        }
-      : {
-          currentNumber: 0,
-          bufferedNumber: 0,
-          concatNumber: "",
-          clearNext: true,
-          displayText: this.crrState.currentNumber.toString(),
-          lastOperation: OPERATIONS.DIVIDE,
-        };
+  division(): CalculatorType {
+
+    return {
+      currentNumber: 0,
+      bufferedNumber: 0,
+      concatNumber: "",
+      clearNext: true,
+      displayText: this.crrState.currentNumber?.toString(),
+      lastOperation: OPERATIONS.EQUAL,
+    }
   }
-  percentage(clearCurrentNumber: boolean): CalculatorType {
-    return clearCurrentNumber
-      ? {
-          currentNumber: 0,
-          bufferedNumber: 0,
-          concatNumber: "",
-          clearNext: true,
-          displayText: "",
-          lastOperation: OPERATIONS.EQUAL,
-        }
-      : {
-          currentNumber: 0,
-          bufferedNumber: 0,
-          concatNumber: "",
-          clearNext: true,
-          displayText: "",
-          lastOperation: OPERATIONS.PERCENT,
-        };
+  percentage(): CalculatorType {
+    return {
+      currentNumber: 0,
+      bufferedNumber: 0,
+      concatNumber: "",
+      clearNext: true,
+      displayText: "",
+      lastOperation: OPERATIONS.EQUAL,
+    }
   }
-  invertSignal(clearCurrentNumber: boolean): CalculatorType {
-    return clearCurrentNumber
-      ? {
-          currentNumber: 0,
-          bufferedNumber: 0,
-          concatNumber: "",
-          clearNext: true,
-          displayText: "",
-          lastOperation: OPERATIONS.EQUAL,
-        }
-      : {
-          currentNumber: 0,
-          bufferedNumber: 0,
-          concatNumber: "",
-          clearNext: true,
-          displayText: "",
-          lastOperation: OPERATIONS.PLUS_MINUS,
-        };
+  invertSignal(): CalculatorType {
+    return {
+      currentNumber: 0,
+      bufferedNumber: 0,
+      concatNumber: "",
+      clearNext: true,
+      displayText: "",
+      lastOperation: OPERATIONS.EQUAL,
+    }
   }
   clearValues(): CalculatorType {
     return DEFAULT_CALC_VALUE.state;
@@ -139,27 +83,27 @@ export class BasicCalculatirImpl implements BasicCalculator {
     this.crrState = currentState;
     switch (buttonLabel) {
       case BUTTON_LABELS.PLUS:
-        return this.sum(false);
+        return this.sum();
       case BUTTON_LABELS.MINUS:
-        return this.subtraction(false);
+        return this.subtraction();
       case BUTTON_LABELS.MULTIPLY:
-        return this.multiplication(false);
+        return this.multiplication();
       case BUTTON_LABELS.DIVIDE:
-        return this.division(false);
+        return this.division();
       case BUTTON_LABELS.EQUAL:
         switch (this.crrState.lastOperation) {
           case OPERATIONS.PLUS:
-            return this.sum(true);
+            return this.sum();
           case OPERATIONS.MINUS:
-            return this.subtraction(true);
+            return this.subtraction();
           case OPERATIONS.MULTIPLY:
-            return this.multiplication(true);
+            return this.multiplication();
           case OPERATIONS.DIVIDE:
-            return this.division(true);
+            return this.division();
         }
         return DEFAULT_CALC_VALUE.state;
       case BUTTON_LABELS.PLUS_MINUS:
-        return this.invertSignal(false);
+        return this.invertSignal();
       default:
         return DEFAULT_CALC_VALUE.state;
     }

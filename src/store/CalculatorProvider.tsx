@@ -7,7 +7,7 @@ export type CalculatorType = {
   bufferedNumber: number,
   concatNumber: string,
   clearNext: boolean;
-  displayText: string;
+  displayText: string | undefined;
   lastOperation: OPERATIONS
 }
 

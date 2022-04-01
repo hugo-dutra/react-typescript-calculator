@@ -10,142 +10,33 @@ export class BasicCalculatirImpl implements BasicCalculator {
     this.crrState = currentState;
   }
   sum(): CalculatorType {
-    const newBufferedValue = this.crrState.currentNumber + this.crrState.bufferedNumber;
-    const newCurrentValue = newBufferedValue;
-    const newConcatvalue = '';
-    switch (this.crrState.lastOperation) {
-      case OPERATIONS.PLUS: return {
-        bufferedNumber: newBufferedValue,
-        currentNumber: newCurrentValue,
-        concatNumber: newConcatvalue,
-        clearNext: true,
-        displayText: newBufferedValue.toString(),
-        lastOperation: OPERATIONS.PLUS
-      }
-      default: return {
-        bufferedNumber: newBufferedValue,
-        currentNumber: 0,
-        concatNumber: '',
-        clearNext: true,
-        displayText: newBufferedValue.toString(),
-        lastOperation: OPERATIONS.EQUAL
-      }
-        break;
-    }
-
+    return DEFAULT_CALC_VALUE.state
   }
   subtraction(): CalculatorType {
-    const newBufferedValue = this.crrState.bufferedNumber - this.crrState.currentNumber;
-    const newCurrentValue = newBufferedValue;
-    const newConcatvalue = '';
-    return {
-      bufferedNumber: newBufferedValue,
-      currentNumber: newCurrentValue,
-      concatNumber: newConcatvalue,
-      clearNext: true,
-      displayText: newBufferedValue.toString(),
-      lastOperation: OPERATIONS.MINUS
-    }
+    return DEFAULT_CALC_VALUE.state
   }
   multiplication(): CalculatorType {
-    let newBufferedValue = 0;
-    let newCurrentValue = 0;
-    let newConcatvalue = '';
-    if (this.crrState.bufferedNumber > 0) {
-      newBufferedValue = this.crrState.currentNumber * this.crrState.bufferedNumber;
-      newCurrentValue = newBufferedValue;
-      newConcatvalue = '';
-    } else {
-      newBufferedValue = this.crrState.currentNumber;
-      newCurrentValue = newBufferedValue;
-      newConcatvalue = '';
-    }
-    return {
-      bufferedNumber: newBufferedValue,
-      currentNumber: newCurrentValue,
-      concatNumber: newConcatvalue,
-      clearNext: true,
-      displayText: newBufferedValue.toString(),
-      lastOperation: OPERATIONS.MULTIPLY
-    }
-
+    return DEFAULT_CALC_VALUE.state
   }
   division(): CalculatorType {
-    let newBufferedValue = 0;
-    let newCurrentValue = 0;
-    let newConcatvalue = '';
-    if (this.crrState.bufferedNumber > 0) {
-      newBufferedValue = this.crrState.bufferedNumber / this.crrState.currentNumber;
-      newCurrentValue = newBufferedValue;
-      newConcatvalue = '';
-    } else {
-      newBufferedValue = this.crrState.currentNumber;
-      newCurrentValue = newBufferedValue;
-      newConcatvalue = '';
-    }
-    return {
-      bufferedNumber: newBufferedValue,
-      currentNumber: newCurrentValue,
-      concatNumber: newConcatvalue,
-      clearNext: true,
-      displayText: newBufferedValue.toString(),
-      lastOperation: OPERATIONS.DIVIDE
-    }
+    return DEFAULT_CALC_VALUE.state
   }
-
   percentage(): CalculatorType {
-    let newBufferedValue = 0;
-    let newCurrentValue = 0;
-    let newConcatvalue = '';
-    if (this.crrState.bufferedNumber > 0) {
-      newBufferedValue = this.crrState.bufferedNumber * this.crrState.currentNumber / 100;
-      newCurrentValue = newBufferedValue;
-      newConcatvalue = '';
-    } else {
-      newBufferedValue = this.crrState.currentNumber;
-      newCurrentValue = newBufferedValue;
-      newConcatvalue = '';
-    }
-    return {
-      bufferedNumber: newBufferedValue,
-      currentNumber: newCurrentValue,
-      concatNumber: newConcatvalue,
-      clearNext: true,
-      displayText: newBufferedValue.toString(),
-      lastOperation: OPERATIONS.PERCENT
-    }
+    return DEFAULT_CALC_VALUE.state
   }
   invertSignal(): CalculatorType {
-    const newBufferedValue = -1 * this.crrState.currentNumber
-    const newCurrentValue = newBufferedValue;
-    const newConcatvalue = '';
-    return {
-      bufferedNumber: newBufferedValue,
-      currentNumber: newCurrentValue,
-      concatNumber: newConcatvalue,
-      clearNext: true,
-      displayText: newBufferedValue.toString(),
-      lastOperation: OPERATIONS.PLUS_MINUS
-    }
+    return DEFAULT_CALC_VALUE.state
   }
   equal(): CalculatorType {
-    switch (this.crrState.lastOperation) {
-      case OPERATIONS.PLUS: return this.sum()
-      case OPERATIONS.MINUS: return this.subtraction();
-      case OPERATIONS.MULTIPLY: return this.multiplication();
-      case OPERATIONS.DIVIDE: return this.division();
-      case OPERATIONS.PERCENT: return this.percentage();
-      case OPERATIONS.PLUS_MINUS: return this.invertSignal();
-      default:
-        break;
-    }
-    return this.crrState;
+    return DEFAULT_CALC_VALUE.state
   }
   clearValues(): CalculatorType {
     return DEFAULT_CALC_VALUE.state
   }
   performCalculation(buttonLabel: BUTTON_LABELS, currentState: CalculatorType): CalculatorType {
     this.crrState = currentState
+    console.clear();
+    console.log(this.crrState);
     switch (buttonLabel) {
       case BUTTON_LABELS.PLUS: return this.sum()
       case BUTTON_LABELS.MINUS: return this.subtraction()
@@ -153,10 +44,8 @@ export class BasicCalculatirImpl implements BasicCalculator {
       case BUTTON_LABELS.DIVIDE: return this.division()
       case BUTTON_LABELS.EQUAL: return this.equal()
       case BUTTON_LABELS.PLUS_MINUS: return this.invertSignal()
-      default:
-        break;
+      default: return DEFAULT_CALC_VALUE.state
     }
-    throw new Error("Method not implemented.");
   }
 
 

@@ -9,20 +9,30 @@ export class BasicCalculatirImpl implements BasicCalculator {
   constructor(currentState: CalculatorType) {
     this.crrState = currentState;
   }
-  private lastOperation: any;
-
   sum(): CalculatorType {
     const newBufferedValue = this.crrState.currentNumber + this.crrState.bufferedNumber;
     const newCurrentValue = newBufferedValue;
     const newConcatvalue = '';
-    return {
-      bufferedNumber: newBufferedValue,
-      currentNumber: newCurrentValue,
-      concatNumber: newConcatvalue,
-      clearNext: true,
-      displayText: newBufferedValue.toString(),
-      lastOperation: OPERATIONS.PLUS
+    switch (this.crrState.lastOperation) {
+      case OPERATIONS.PLUS: return {
+        bufferedNumber: newBufferedValue,
+        currentNumber: newCurrentValue,
+        concatNumber: newConcatvalue,
+        clearNext: true,
+        displayText: newBufferedValue.toString(),
+        lastOperation: OPERATIONS.PLUS
+      }
+      default: return {
+        bufferedNumber: newBufferedValue,
+        currentNumber: 0,
+        concatNumber: '',
+        clearNext: true,
+        displayText: newBufferedValue.toString(),
+        lastOperation: OPERATIONS.EQUAL
+      }
+        break;
     }
+
   }
   subtraction(): CalculatorType {
     const newBufferedValue = this.crrState.bufferedNumber - this.crrState.currentNumber;
@@ -119,7 +129,17 @@ export class BasicCalculatirImpl implements BasicCalculator {
     }
   }
   equal(): CalculatorType {
-    return this.sum();
+    switch (this.crrState.lastOperation) {
+      case OPERATIONS.PLUS: return this.sum()
+      case OPERATIONS.MINUS: return this.subtraction();
+      case OPERATIONS.MULTIPLY: return this.multiplication();
+      case OPERATIONS.DIVIDE: return this.division();
+      case OPERATIONS.PERCENT: return this.percentage();
+      case OPERATIONS.PLUS_MINUS: return this.invertSignal();
+      default:
+        break;
+    }
+    return this.crrState;
   }
   clearValues(): CalculatorType {
     return DEFAULT_CALC_VALUE.state

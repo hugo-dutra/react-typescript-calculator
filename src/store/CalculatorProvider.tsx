@@ -20,8 +20,8 @@ export type PropsCalculatorContext = {
 //Valor inicial padrao
 export const DEFAULT_CALC_VALUE: PropsCalculatorContext = {
   state: {
-    currentNumber: 0,
-    bufferedNumber: 0,
+    currentNumber: Infinity,
+    bufferedNumber: Infinity,
     concatNumber: '',
     clearNext: false,
     displayText: '',

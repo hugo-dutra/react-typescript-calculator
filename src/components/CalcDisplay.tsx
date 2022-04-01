@@ -6,7 +6,7 @@ const CalcDisplay: React.FC = props => {
   const { state } = useContext(CalcContext)
   useEffect(() => {
     console.clear();
-    console.log(state);
+    console.table(state);
   }, [state])
 
   return (

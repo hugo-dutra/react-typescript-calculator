@@ -3,8 +3,8 @@ import { OPERATIONS } from "../enums/Operations";
 
 //Tipo de Objeto a ser atualizado
 export type CalculatorType = {
-  currentNumber: number,
-  bufferedNumber: number,
+  currentNumber: number | null,
+  bufferedNumber: number | null,
   concatNumber: string,
   clearNext: boolean;
   displayText: string | undefined;
@@ -20,8 +20,8 @@ export type PropsCalculatorContext = {
 //Valor inicial padrao
 export const DEFAULT_CALC_VALUE: PropsCalculatorContext = {
   state: {
-    currentNumber: Infinity,
-    bufferedNumber: Infinity,
+    currentNumber: null,
+    bufferedNumber: null,
     concatNumber: '',
     clearNext: false,
     displayText: '',

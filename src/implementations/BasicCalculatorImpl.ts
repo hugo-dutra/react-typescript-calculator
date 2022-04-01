@@ -25,15 +25,17 @@ export class BasicCalculatirImpl implements BasicCalculator {
   }
   multiplication(): CalculatorType {
     if (this.crrState.lastOperation === OPERATIONS.MULTIPLY) {
-      alert('MULTIPLY agora...');
+      const newBufferedNumber = Number(this.crrState.bufferedNumber) * Number(this.crrState.currentNumber);
+      return { ...this.crrState, lastOperation: OPERATIONS.MULTIPLY, bufferedNumber: newBufferedNumber, concatNumber: '', displayText: newBufferedNumber.toString() }
     }
-    return { ...this.crrState, lastOperation: OPERATIONS.MULTIPLY }
+    return { ...this.crrState, lastOperation: OPERATIONS.MULTIPLY, bufferedNumber: this.crrState.currentNumber, currentNumber: this.crrState.bufferedNumber, concatNumber: '', displayText: this.crrState.bufferedNumber?.toString() }
   }
   division(): CalculatorType {
     if (this.crrState.lastOperation === OPERATIONS.DIVIDE) {
-      alert('DIVIDE agora...');
+      const newBufferedNumber = Number(this.crrState.bufferedNumber) / Number(this.crrState.currentNumber);
+      return { ...this.crrState, lastOperation: OPERATIONS.DIVIDE, bufferedNumber: newBufferedNumber, concatNumber: '', displayText: newBufferedNumber.toString() }
     }
-    return { ...this.crrState, lastOperation: OPERATIONS.DIVIDE }
+    return { ...this.crrState, lastOperation: OPERATIONS.DIVIDE, bufferedNumber: this.crrState.currentNumber, currentNumber: this.crrState.bufferedNumber, concatNumber: '', displayText: this.crrState.bufferedNumber?.toString() }
   }
   percentage(): CalculatorType {
     alert('PERCENT agora...');
@@ -51,8 +53,8 @@ export class BasicCalculatirImpl implements BasicCalculator {
     switch (this.crrState.lastOperation) {
       case OPERATIONS.PLUS: return { ...this.sum(), currentNumber: Number(this.crrState.bufferedNumber) + Number(this.crrState.currentNumber), lastOperation: null, bufferedNumber: null };
       case OPERATIONS.MINUS: return { ...this.subtraction(), currentNumber: Number(this.crrState.bufferedNumber) - Number(this.crrState.currentNumber), lastOperation: null, bufferedNumber: null };
-      case OPERATIONS.MULTIPLY: return this.multiplication();
-      case OPERATIONS.DIVIDE: return this.division();
+      case OPERATIONS.MULTIPLY: return { ...this.multiplication(), currentNumber: Number(this.crrState.bufferedNumber) * Number(this.crrState.currentNumber), lastOperation: null, bufferedNumber: null };
+      case OPERATIONS.DIVIDE: return { ...this.division(), currentNumber: Number(this.crrState.bufferedNumber) / Number(this.crrState.currentNumber), lastOperation: null, bufferedNumber: null };
       case OPERATIONS.PERCENT: return this.percentage();
       case OPERATIONS.PLUS_MINUS: return this.invertSignal();
       case OPERATIONS.AC: return this.clearValues();
